@@ -7,7 +7,31 @@ import { FaGoogle } from 'react-icons/fa'
 import profile from '../public/img/profile3.png'
 import goq from '../public/img/goq.png'
 import jakk from '../public/img/jakk.png'
-import { useState } from 'react'
+import { useState } from 'react';
+const projects = [{
+ id: 1,
+ img: goq,
+ text: `This is a React app that displays 
+ notable quotes by our favorite characters
+ from the HBO series &apos;Game of Thrones&apos;.
+ Its a simple app that demostrates the basic 
+ features of the React library.`,
+ title: 'Game of Quotes',
+ githubUrl: 'https://github.com/UgegeDaniel/game-of-quotes',
+ deployedUrl: 'https://game-of-quotes.pages.dev/'
+},{
+ id: 1,
+ img: goq,
+ text: `This is a React app that displays 
+ notable quotes by our favorite characters
+ from the HBO series &apos;Game of Thrones&apos;.
+ Its a simple app that demostrates the basic 
+ features of the React library.`,
+ title: 'Game of Quotes',
+ githubUrl: 'https://github.com/UgegeDaniel/game-of-quotes',
+ deployedUrl: 'https://game-of-quotes.pages.dev/'
+}           
+]
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false)
   return (
@@ -43,54 +67,29 @@ export default function Home() {
             <a href="https://twitter.com/ugege_daniel" rel="noreferrer" target="_blank" className='text-twitter-blue mx-auto flex flex-col justify-center align-center'>
               <AiFillTwitterCircle /><p className='text-xs'>@U_Danny</p></a>
           </div>
-          {/* <div className='relative bg-gradient-to-b from-gray-500 rounded-full w-50  h-50 mt-20 mx-auto'>
-            <Image src={profile} alt="profile" layout="fill" objectFit="cover"/>
-          </div> */}
         </section>
-        {/* <section>
-          <div>
-            <h3 className="text-3xl py-1 dark:text-teal-300">Services I offer</h3>
-            <p className="text-md py-2 leading-8 text-gray-80 dark:text-white">Since the start of my web development career, I have offered freelance Wordpress services to remote clients on <span className="text-teal-500">Upwork</span></p>
-            <p className="text-md py-2 leading-8 text-gray-80  dark:text-white">I create custom Wordpress themes for clients based on their designs and / or prefrences</p>
-          </div>
-          <div>
-            <h3 className="text-3xl py-1 dark:text-white">WORDPRESS PROJECTS</h3>
-            <div className="lg:flex gap-10">
-              <div className="text-center shadow-lg p-10 rounded-xl my-10">
-                <h3 className="text-3xl py-1 text-teal-700">My Wordpress Designs</h3>
-                <p className="text-md py-2 leading-8 text-gray-80"></p>
-              </div>
-              <div className="text-center shadow-lg p-10 rounded-xl my-10">
-                <h3 className="text-3xl py-1 text-teal-700">My Wordpress Designs</h3>
-                <p className="text-md py-2 leading-8 text-gray-80"></p>
-              </div>
-              <div className="text-center shadow-lg p-10 rounded-xl my-10">
-                <h3 className="text-3xl py-1 text-teal-700">My Wordpress Designs</h3>
-                <p className="text-md py-2 leading-8 text-gray-80"></p>
-              </div>
-            </div>
-          </div>
-        </section> */}
+     
         <section >
           <h3 className="text-3xl py-1 dark:text-white text-center">WEB DEVELOPMENT PROJECTS</h3>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
 
             {/* GAME OF Quotes */}
-            <div className="text-center shadow-lg p-10 rounded-xl my-1 basis-1/3 flex-1">
+         {projects.map((project, index)=>(
+           <div className="text-center shadow-lg p-10 rounded-xl my-1 basis-1/3 flex-1">
               <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div className="p-2">
-                  <Image className="rounded-t-xs mx-auto m-1" src={goq} alt="" height={200} width={"100%"} />
+                  <Image className="rounded-t-xs mx-auto m-1" src={project.img} alt="" height={200} width={"100%"} />
                   <a href="#">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-goq-orange">Game of Quotes</h5>
-                    <h6 className="mb-2 font-bold tracking-tight text-goq-orange">FRONT END PROJECT</h6>
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-goq-orange">{project.title}</h5>
+                    <h6 className="mb-2 font-bold tracking-tight text-goq-orange">{project.catogory}</h6>
                   </a>
-                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">This is a React app that displays notable quotes by our favorite characters from the HBO series &apos;Game of Thrones&apos;. Its a simple app that demostrates the basic features of the React library.</p>
+                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{project.text}</p>
                   <figcaption class="font-medium flex gap-2 justify-center">
-                    <a href="https://github.com/UgegeDaniel/game-of-quotes" rel="noreferrer" target="_blank">
+                    <a href={project.githubUrl} rel="noreferrer" target="_blank">
                       <div class="text-goq-orange cursor-pointer "> Source Code
                       </div>
                     </a>
-                    <a href="https://game-of-quotes.pages.dev/" rel="noreferrer" target="_blank">
+                    <a href={project.deployedUrl} rel="noreferrer" target="_blank">
                       <div class="text-slate-700 dark:text-goq-orange-light">
                         Deployed site
                       </div>
@@ -99,6 +98,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
+)}
+            
 
             {/* JAKK FRONTEND*/}
             <div className="text-center shadow-lg p-10 rounded-xl my-1 basis-1/3 flex-1">
