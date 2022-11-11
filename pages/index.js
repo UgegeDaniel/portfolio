@@ -75,10 +75,10 @@ export default function Home() {
 
             {/* GAME OF Quotes */}
          {projects.map((project, index)=>(
-           <div className="text-center shadow-lg p-10 rounded-xl my-1 basis-1/3 flex-1">
+           <div className="text-center shadow-lg p-10 rounded-xl my-1 basis-1/3 flex-1" key={project.id}>
               <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div className="p-2">
-                  <Image className="rounded-t-xs mx-auto m-1" src={project.img} alt="" height={200} width={"100%"} />
+                  <Image className="rounded-t-xs mx-auto m-1" src={project.img} alt="sample img" height={200} width="100%"/>
                   <a href="#">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-goq-orange">{project.title}</h5>
                     <h6 className="mb-2 font-bold tracking-tight text-goq-orange">{project.catogory}</h6>
