@@ -21,6 +21,7 @@ This is a responsive Next JS app that displays recent web development projects b
 - TypeScript
 - ES Lint (Air Bnb recomended standard)
 - Next-JS
+- React Testing Library/ Jest
 
 ## Live Preview
 Find the live version [here](https://portfolio-one-chi-75.vercel.app/). 
